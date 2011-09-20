@@ -1,0 +1,1348 @@
+<?php
+	/**
+	 * The abstract DataPribadiGen class defined here is
+	 * code-generated and contains all the basic CRUD-type functionality as well as
+	 * basic methods to handle relationships and index-based loading.
+	 *
+	 * To use, you should use the DataPribadi subclass which
+	 * extends this DataPribadiGen class.
+	 *
+	 * Because subsequent re-code generations will overwrite any changes to this
+	 * file, you should leave this file unaltered to prevent yourself from losing
+	 * any information or code changes.  All customizations should be done by
+	 * overriding existing or implementing new methods, properties and variables
+	 * in the DataPribadi class.
+	 *
+	 * @package My QCubed Application
+	 * @subpackage GeneratedDataObjects
+	 * @property string $Nip the value for strNip (PK)
+	 * @property string $TempatLahir the value for strTempatLahir 
+	 * @property QDateTime $TglLahir the value for dttTglLahir 
+	 * @property string $Agama the value for strAgama 
+	 * @property string $StatusNikah the value for strStatusNikah 
+	 * @property integer $JumTanggungan the value for intJumTanggungan 
+	 * @property string $Alamat the value for strAlamat 
+	 * @property string $NamaBapak the value for strNamaBapak 
+	 * @property string $NamaIbu the value for strNamaIbu 
+	 * @property string $JenisKelamin the value for strJenisKelamin 
+	 * @property DataPegawai $NipObject the value for the DataPegawai object referenced by strNip (PK)
+	 * @property-read boolean $__Restored whether or not this object was restored from the database (as opposed to created new)
+	 */
+	class DataPribadiGen extends QBaseClass implements IteratorAggregate {
+
+		///////////////////////////////////////////////////////////////////////
+		// PROTECTED MEMBER VARIABLES and TEXT FIELD MAXLENGTHS (if applicable)
+		///////////////////////////////////////////////////////////////////////
+
+		/**
+		 * Protected member variable that maps to the database PK column data_pribadi.nip
+		 * @var string strNip
+		 */
+		protected $strNip;
+		const NipMaxLength = 45;
+		const NipDefault = null;
+
+
+		/**
+		 * Protected internal member variable that stores the original version of the PK column value (if restored)
+		 * Used by Save() to update a PK column during UPDATE
+		 * @var string __strNip;
+		 */
+		protected $__strNip;
+
+		/**
+		 * Protected member variable that maps to the database column data_pribadi.tempat_lahir
+		 * @var string strTempatLahir
+		 */
+		protected $strTempatLahir;
+		const TempatLahirMaxLength = 45;
+		const TempatLahirDefault = null;
+
+
+		/**
+		 * Protected member variable that maps to the database column data_pribadi.tgl_lahir
+		 * @var QDateTime dttTglLahir
+		 */
+		protected $dttTglLahir;
+		const TglLahirDefault = null;
+
+
+		/**
+		 * Protected member variable that maps to the database column data_pribadi.agama
+		 * @var string strAgama
+		 */
+		protected $strAgama;
+		const AgamaMaxLength = 45;
+		const AgamaDefault = null;
+
+
+		/**
+		 * Protected member variable that maps to the database column data_pribadi.status_nikah
+		 * @var string strStatusNikah
+		 */
+		protected $strStatusNikah;
+		const StatusNikahDefault = null;
+
+
+		/**
+		 * Protected member variable that maps to the database column data_pribadi.jum_tanggungan
+		 * @var integer intJumTanggungan
+		 */
+		protected $intJumTanggungan;
+		const JumTanggunganDefault = null;
+
+
+		/**
+		 * Protected member variable that maps to the database column data_pribadi.alamat
+		 * @var string strAlamat
+		 */
+		protected $strAlamat;
+		const AlamatDefault = null;
+
+
+		/**
+		 * Protected member variable that maps to the database column data_pribadi.nama_bapak
+		 * @var string strNamaBapak
+		 */
+		protected $strNamaBapak;
+		const NamaBapakMaxLength = 64;
+		const NamaBapakDefault = null;
+
+
+		/**
+		 * Protected member variable that maps to the database column data_pribadi.nama_ibu
+		 * @var string strNamaIbu
+		 */
+		protected $strNamaIbu;
+		const NamaIbuMaxLength = 64;
+		const NamaIbuDefault = null;
+
+
+		/**
+		 * Protected member variable that maps to the database column data_pribadi.jenis_kelamin
+		 * @var string strJenisKelamin
+		 */
+		protected $strJenisKelamin;
+		const JenisKelaminDefault = null;
+
+
+		/**
+		 * Protected array of virtual attributes for this object (e.g. extra/other calculated and/or non-object bound
+		 * columns from the run-time database query result for this object).  Used by InstantiateDbRow and
+		 * GetVirtualAttribute.
+		 * @var string[] $__strVirtualAttributeArray
+		 */
+		protected $__strVirtualAttributeArray = array();
+
+		/**
+		 * Protected internal member variable that specifies whether or not this object is Restored from the database.
+		 * Used by Save() to determine if Save() should perform a db UPDATE or INSERT.
+		 * @var bool __blnRestored;
+		 */
+		protected $__blnRestored;
+
+
+
+
+		///////////////////////////////
+		// PROTECTED MEMBER OBJECTS
+		///////////////////////////////
+
+		/**
+		 * Protected member variable that contains the object pointed by the reference
+		 * in the database column data_pribadi.nip.
+		 *
+		 * NOTE: Always use the NipObject property getter to correctly retrieve this DataPegawai object.
+		 * (Because this class implements late binding, this variable reference MAY be null.)
+		 * @var DataPegawai objNipObject
+		 */
+		protected $objNipObject;
+
+
+
+		/**
+		 * Initialize each property with default values from database definition
+		 */
+		public function Initialize()
+		{
+			$this->strNip = DataPribadi::NipDefault;
+			$this->strTempatLahir = DataPribadi::TempatLahirDefault;
+			$this->dttTglLahir = (DataPribadi::TglLahirDefault === null)?null:new QDateTime(DataPribadi::TglLahirDefault);
+			$this->strAgama = DataPribadi::AgamaDefault;
+			$this->strStatusNikah = DataPribadi::StatusNikahDefault;
+			$this->intJumTanggungan = DataPribadi::JumTanggunganDefault;
+			$this->strAlamat = DataPribadi::AlamatDefault;
+			$this->strNamaBapak = DataPribadi::NamaBapakDefault;
+			$this->strNamaIbu = DataPribadi::NamaIbuDefault;
+			$this->strJenisKelamin = DataPribadi::JenisKelaminDefault;
+		}
+
+
+		///////////////////////////////
+		// CLASS-WIDE LOAD AND COUNT METHODS
+		///////////////////////////////
+
+		/**
+		 * Static method to retrieve the Database object that owns this class.
+		 * @return QDatabaseBase reference to the Database object that can query this class
+		 */
+		public static function GetDatabase() {
+			return QApplication::$Database[1];
+		}
+
+		/**
+		 * Load a DataPribadi from PK Info
+		 * @param string $strNip
+		 * @param QQClause[] $objOptionalClauses additional optional QQClause objects for this query
+		 * @return DataPribadi
+		 */
+		public static function Load($strNip, $objOptionalClauses = null) {
+			// Use QuerySingle to Perform the Query
+			return DataPribadi::QuerySingle(
+				QQ::AndCondition(
+					QQ::Equal(QQN::DataPribadi()->Nip, $strNip)
+				),
+				$objOptionalClauses
+			);
+		}
+
+		/**
+		 * Load all DataPribadis
+		 * @param QQClause[] $objOptionalClauses additional optional QQClause objects for this query
+		 * @return DataPribadi[]
+		 */
+		public static function LoadAll($objOptionalClauses = null) {
+			if (func_num_args() > 1) {
+				throw new QCallerException("LoadAll must be called with an array of optional clauses as a single argument");
+			}
+			// Call DataPribadi::QueryArray to perform the LoadAll query
+			try {
+				return DataPribadi::QueryArray(QQ::All(), $objOptionalClauses);
+			} catch (QCallerException $objExc) {
+				$objExc->IncrementOffset();
+				throw $objExc;
+			}
+		}
+
+		/**
+		 * Count all DataPribadis
+		 * @return int
+		 */
+		public static function CountAll() {
+			// Call DataPribadi::QueryCount to perform the CountAll query
+			return DataPribadi::QueryCount(QQ::All());
+		}
+
+
+
+
+		///////////////////////////////
+		// QCUBED QUERY-RELATED METHODS
+		///////////////////////////////
+
+		/**
+		 * Internally called method to assist with calling Qcubed Query for this class
+		 * on load methods.
+		 * @param QQueryBuilder &$objQueryBuilder the QueryBuilder object that will be created
+		 * @param QQCondition $objConditions any conditions on the query, itself
+		 * @param QQClause[] $objOptionalClausees additional optional QQClause object or array of QQClause objects for this query
+		 * @param mixed[] $mixParameterArray a array of name-value pairs to perform PrepareStatement with (sending in null will skip the PrepareStatement step)
+		 * @param boolean $blnCountOnly only select a rowcount
+		 * @return string the query statement
+		 */
+		protected static function BuildQueryStatement(&$objQueryBuilder, QQCondition $objConditions, $objOptionalClauses, $mixParameterArray, $blnCountOnly) {
+			// Get the Database Object for this Class
+			$objDatabase = DataPribadi::GetDatabase();
+
+			// Create/Build out the QueryBuilder object with DataPribadi-specific SELET and FROM fields
+			$objQueryBuilder = new QQueryBuilder($objDatabase, 'data_pribadi');
+			DataPribadi::GetSelectFields($objQueryBuilder);
+			$objQueryBuilder->AddFromItem('data_pribadi');
+
+			// Set "CountOnly" option (if applicable)
+			if ($blnCountOnly)
+				$objQueryBuilder->SetCountOnlyFlag();
+
+			// Apply Any Conditions
+			if ($objConditions)
+				try {
+					$objConditions->UpdateQueryBuilder($objQueryBuilder);
+				} catch (QCallerException $objExc) {
+					$objExc->IncrementOffset();
+					throw $objExc;
+				}
+
+			// Iterate through all the Optional Clauses (if any) and perform accordingly
+			if ($objOptionalClauses) {
+				if ($objOptionalClauses instanceof QQClause)
+					$objOptionalClauses->UpdateQueryBuilder($objQueryBuilder);
+				else if (is_array($objOptionalClauses))
+					foreach ($objOptionalClauses as $objClause)
+						$objClause->UpdateQueryBuilder($objQueryBuilder);
+				else
+					throw new QCallerException('Optional Clauses must be a QQClause object or an array of QQClause objects');
+			}
+
+			// Get the SQL Statement
+			$strQuery = $objQueryBuilder->GetStatement();
+
+			// Prepare the Statement with the Query Parameters (if applicable)
+			if ($mixParameterArray) {
+				if (is_array($mixParameterArray)) {
+					if (count($mixParameterArray))
+						$strQuery = $objDatabase->PrepareStatement($strQuery, $mixParameterArray);
+
+					// Ensure that there are no other Unresolved Named Parameters
+					if (strpos($strQuery, chr(QQNamedValue::DelimiterCode) . '{') !== false)
+						throw new QCallerException('Unresolved named parameters in the query');
+				} else
+					throw new QCallerException('Parameter Array must be an array of name-value parameter pairs');
+			}
+
+			// Return the Objects
+			return $strQuery;
+		}
+
+		/**
+		 * Static Qcubed Query method to query for a single DataPribadi object.
+		 * Uses BuildQueryStatment to perform most of the work.
+		 * @param QQCondition $objConditions any conditions on the query, itself
+		 * @param QQClause[] $objOptionalClausees additional optional QQClause objects for this query
+		 * @param mixed[] $mixParameterArray a array of name-value pairs to perform PrepareStatement with
+		 * @return DataPribadi the queried object
+		 */
+		public static function QuerySingle(QQCondition $objConditions, $objOptionalClauses = null, $mixParameterArray = null) {
+			// Get the Query Statement
+			try {
+				$strQuery = DataPribadi::BuildQueryStatement($objQueryBuilder, $objConditions, $objOptionalClauses, $mixParameterArray, false);
+			} catch (QCallerException $objExc) {
+				$objExc->IncrementOffset();
+				throw $objExc;
+			}
+
+			// Perform the Query, Get the First Row, and Instantiate a new DataPribadi object
+			$objDbResult = $objQueryBuilder->Database->Query($strQuery);
+
+			// Do we have to expand anything?
+			if ($objQueryBuilder->ExpandAsArrayNodes) {
+				$objToReturn = array();
+				while ($objDbRow = $objDbResult->GetNextRow()) {
+					$objItem = DataPribadi::InstantiateDbRow($objDbRow, null, $objQueryBuilder->ExpandAsArrayNodes, $objToReturn, $objQueryBuilder->ColumnAliasArray);
+					if ($objItem)
+						$objToReturn[] = $objItem;
+				}
+				if (count($objToReturn)) {
+					// Since we only want the object to return, lets return the object and not the array.
+					return $objToReturn[0];
+				} else {
+					return null;
+				}
+			} else {
+				// No expands just return the first row
+				$objDbRow = $objDbResult->GetNextRow();
+				if(null === $objDbRow)
+					return null;
+				return DataPribadi::InstantiateDbRow($objDbRow, null, null, null, $objQueryBuilder->ColumnAliasArray);
+			}
+		}
+
+		/**
+		 * Static Qcubed Query method to query for an array of DataPribadi objects.
+		 * Uses BuildQueryStatment to perform most of the work.
+		 * @param QQCondition $objConditions any conditions on the query, itself
+		 * @param QQClause[] $objOptionalClausees additional optional QQClause objects for this query
+		 * @param mixed[] $mixParameterArray a array of name-value pairs to perform PrepareStatement with
+		 * @return DataPribadi[] the queried objects as an array
+		 */
+		public static function QueryArray(QQCondition $objConditions, $objOptionalClauses = null, $mixParameterArray = null) {
+			// Get the Query Statement
+			try {
+				$strQuery = DataPribadi::BuildQueryStatement($objQueryBuilder, $objConditions, $objOptionalClauses, $mixParameterArray, false);
+			} catch (QCallerException $objExc) {
+				$objExc->IncrementOffset();
+				throw $objExc;
+			}
+
+			// Perform the Query and Instantiate the Array Result
+			$objDbResult = $objQueryBuilder->Database->Query($strQuery);
+			return DataPribadi::InstantiateDbResult($objDbResult, $objQueryBuilder->ExpandAsArrayNodes, $objQueryBuilder->ColumnAliasArray);
+		}
+
+		/**
+		 * Static Qcubed Query method to query for a count of DataPribadi objects.
+		 * Uses BuildQueryStatment to perform most of the work.
+		 * @param QQCondition $objConditions any conditions on the query, itself
+		 * @param QQClause[] $objOptionalClausees additional optional QQClause objects for this query
+		 * @param mixed[] $mixParameterArray a array of name-value pairs to perform PrepareStatement with
+		 * @return integer the count of queried objects as an integer
+		 */
+		public static function QueryCount(QQCondition $objConditions, $objOptionalClauses = null, $mixParameterArray = null) {
+			// Get the Query Statement
+			try {
+				$strQuery = DataPribadi::BuildQueryStatement($objQueryBuilder, $objConditions, $objOptionalClauses, $mixParameterArray, true);
+			} catch (QCallerException $objExc) {
+				$objExc->IncrementOffset();
+				throw $objExc;
+			}
+
+			// Perform the Query and return the row_count
+			$objDbResult = $objQueryBuilder->Database->Query($strQuery);
+
+			// Figure out if the query is using GroupBy
+			$blnGrouped = false;
+
+			if ($objOptionalClauses) foreach ($objOptionalClauses as $objClause) {
+				if ($objClause instanceof QQGroupBy) {
+					$blnGrouped = true;
+					break;
+				}
+			}
+
+			if ($blnGrouped)
+				// Groups in this query - return the count of Groups (which is the count of all rows)
+				return $objDbResult->CountRows();
+			else {
+				// No Groups - return the sql-calculated count(*) value
+				$strDbRow = $objDbResult->FetchRow();
+				return QType::Cast($strDbRow[0], QType::Integer);
+			}
+		}
+
+		public static function QueryArrayCached(QQCondition $objConditions, $objOptionalClauses = null, $mixParameterArray = null, $blnForceUpdate = false) {
+			// Get the Database Object for this Class
+			$objDatabase = DataPribadi::GetDatabase();
+
+			$strQuery = DataPribadi::BuildQueryStatement($objQueryBuilder, $objConditions, $objOptionalClauses, $mixParameterArray, false);
+
+			$objCache = new QCache('qquery/datapribadi', $strQuery);
+			$cacheData = $objCache->GetData();
+
+			if (!$cacheData || $blnForceUpdate) {
+				$objDbResult = $objQueryBuilder->Database->Query($strQuery);
+				$arrResult = DataPribadi::InstantiateDbResult($objDbResult, $objQueryBuilder->ExpandAsArrayNodes, $objQueryBuilder->ColumnAliasArray);
+				$objCache->SaveData(serialize($arrResult));
+			} else {
+				$arrResult = unserialize($cacheData);
+			}
+
+			return $arrResult;
+		}
+
+		/**
+		 * Updates a QQueryBuilder with the SELECT fields for this DataPribadi
+		 * @param QQueryBuilder $objBuilder the Query Builder object to update
+		 * @param string $strPrefix optional prefix to add to the SELECT fields
+		 */
+		public static function GetSelectFields(QQueryBuilder $objBuilder, $strPrefix = null) {
+			if ($strPrefix) {
+				$strTableName = $strPrefix;
+				$strAliasPrefix = $strPrefix . '__';
+			} else {
+				$strTableName = 'data_pribadi';
+				$strAliasPrefix = '';
+			}
+
+			$objBuilder->AddSelectItem($strTableName, 'nip', $strAliasPrefix . 'nip');
+			$objBuilder->AddSelectItem($strTableName, 'tempat_lahir', $strAliasPrefix . 'tempat_lahir');
+			$objBuilder->AddSelectItem($strTableName, 'tgl_lahir', $strAliasPrefix . 'tgl_lahir');
+			$objBuilder->AddSelectItem($strTableName, 'agama', $strAliasPrefix . 'agama');
+			$objBuilder->AddSelectItem($strTableName, 'status_nikah', $strAliasPrefix . 'status_nikah');
+			$objBuilder->AddSelectItem($strTableName, 'jum_tanggungan', $strAliasPrefix . 'jum_tanggungan');
+			$objBuilder->AddSelectItem($strTableName, 'alamat', $strAliasPrefix . 'alamat');
+			$objBuilder->AddSelectItem($strTableName, 'nama_bapak', $strAliasPrefix . 'nama_bapak');
+			$objBuilder->AddSelectItem($strTableName, 'nama_ibu', $strAliasPrefix . 'nama_ibu');
+			$objBuilder->AddSelectItem($strTableName, 'jenis_kelamin', $strAliasPrefix . 'jenis_kelamin');
+		}
+
+
+
+		///////////////////////////////
+		// INSTANTIATION-RELATED METHODS
+		///////////////////////////////
+
+		/**
+		 * Instantiate a DataPribadi from a Database Row.
+		 * Takes in an optional strAliasPrefix, used in case another Object::InstantiateDbRow
+		 * is calling this DataPribadi::InstantiateDbRow in order to perform
+		 * early binding on referenced objects.
+		 * @param DatabaseRowBase $objDbRow
+		 * @param string $strAliasPrefix
+		 * @param string $strExpandAsArrayNodes
+		 * @param QBaseClass $arrPreviousItem
+		 * @param string[] $strColumnAliasArray
+		 * @return DataPribadi
+		*/
+		public static function InstantiateDbRow($objDbRow, $strAliasPrefix = null, $strExpandAsArrayNodes = null, $arrPreviousItems = null, $strColumnAliasArray = array()) {
+			// If blank row, return null
+			if (!$objDbRow) {
+				return null;
+			}
+
+			// Create a new instance of the DataPribadi object
+			$objToReturn = new DataPribadi();
+			$objToReturn->__blnRestored = true;
+
+			$strAliasName = array_key_exists($strAliasPrefix . 'nip', $strColumnAliasArray) ? $strColumnAliasArray[$strAliasPrefix . 'nip'] : $strAliasPrefix . 'nip';
+			$objToReturn->strNip = $objDbRow->GetColumn($strAliasName, 'VarChar');
+			$objToReturn->__strNip = $objDbRow->GetColumn($strAliasName, 'VarChar');
+			$strAliasName = array_key_exists($strAliasPrefix . 'tempat_lahir', $strColumnAliasArray) ? $strColumnAliasArray[$strAliasPrefix . 'tempat_lahir'] : $strAliasPrefix . 'tempat_lahir';
+			$objToReturn->strTempatLahir = $objDbRow->GetColumn($strAliasName, 'VarChar');
+			$strAliasName = array_key_exists($strAliasPrefix . 'tgl_lahir', $strColumnAliasArray) ? $strColumnAliasArray[$strAliasPrefix . 'tgl_lahir'] : $strAliasPrefix . 'tgl_lahir';
+			$objToReturn->dttTglLahir = $objDbRow->GetColumn($strAliasName, 'Date');
+			$strAliasName = array_key_exists($strAliasPrefix . 'agama', $strColumnAliasArray) ? $strColumnAliasArray[$strAliasPrefix . 'agama'] : $strAliasPrefix . 'agama';
+			$objToReturn->strAgama = $objDbRow->GetColumn($strAliasName, 'VarChar');
+			$strAliasName = array_key_exists($strAliasPrefix . 'status_nikah', $strColumnAliasArray) ? $strColumnAliasArray[$strAliasPrefix . 'status_nikah'] : $strAliasPrefix . 'status_nikah';
+			$objToReturn->strStatusNikah = $objDbRow->GetColumn($strAliasName, 'VarChar');
+			$strAliasName = array_key_exists($strAliasPrefix . 'jum_tanggungan', $strColumnAliasArray) ? $strColumnAliasArray[$strAliasPrefix . 'jum_tanggungan'] : $strAliasPrefix . 'jum_tanggungan';
+			$objToReturn->intJumTanggungan = $objDbRow->GetColumn($strAliasName, 'Integer');
+			$strAliasName = array_key_exists($strAliasPrefix . 'alamat', $strColumnAliasArray) ? $strColumnAliasArray[$strAliasPrefix . 'alamat'] : $strAliasPrefix . 'alamat';
+			$objToReturn->strAlamat = $objDbRow->GetColumn($strAliasName, 'Blob');
+			$strAliasName = array_key_exists($strAliasPrefix . 'nama_bapak', $strColumnAliasArray) ? $strColumnAliasArray[$strAliasPrefix . 'nama_bapak'] : $strAliasPrefix . 'nama_bapak';
+			$objToReturn->strNamaBapak = $objDbRow->GetColumn($strAliasName, 'VarChar');
+			$strAliasName = array_key_exists($strAliasPrefix . 'nama_ibu', $strColumnAliasArray) ? $strColumnAliasArray[$strAliasPrefix . 'nama_ibu'] : $strAliasPrefix . 'nama_ibu';
+			$objToReturn->strNamaIbu = $objDbRow->GetColumn($strAliasName, 'VarChar');
+			$strAliasName = array_key_exists($strAliasPrefix . 'jenis_kelamin', $strColumnAliasArray) ? $strColumnAliasArray[$strAliasPrefix . 'jenis_kelamin'] : $strAliasPrefix . 'jenis_kelamin';
+			$objToReturn->strJenisKelamin = $objDbRow->GetColumn($strAliasName, 'VarChar');
+
+			if (isset($arrPreviousItems) && is_array($arrPreviousItems)) {
+				foreach ($arrPreviousItems as $objPreviousItem) {
+					if ($objToReturn->Nip != $objPreviousItem->Nip) {
+						continue;
+					}
+
+					// complete match - all primary key columns are the same
+					return null;
+				}
+			}
+
+			// Instantiate Virtual Attributes
+			foreach ($objDbRow->GetColumnNameArray() as $strColumnName => $mixValue) {
+				$strVirtualPrefix = $strAliasPrefix . '__';
+				$strVirtualPrefixLength = strlen($strVirtualPrefix);
+				if (substr($strColumnName, 0, $strVirtualPrefixLength) == $strVirtualPrefix)
+					$objToReturn->__strVirtualAttributeArray[substr($strColumnName, $strVirtualPrefixLength)] = $mixValue;
+			}
+
+			// Prepare to Check for Early/Virtual Binding
+			if (!$strAliasPrefix)
+				$strAliasPrefix = 'data_pribadi__';
+
+			// Check for NipObject Early Binding
+			$strAlias = $strAliasPrefix . 'nip__nip';
+			$strAliasName = array_key_exists($strAlias, $strColumnAliasArray) ? $strColumnAliasArray[$strAlias] : $strAlias;
+			if (!is_null($objDbRow->GetColumn($strAliasName)))
+				$objToReturn->objNipObject = DataPegawai::InstantiateDbRow($objDbRow, $strAliasPrefix . 'nip__', $strExpandAsArrayNodes, null, $strColumnAliasArray);
+
+
+
+
+			return $objToReturn;
+		}
+
+		/**
+		 * Instantiate an array of DataPribadis from a Database Result
+		 * @param DatabaseResultBase $objDbResult
+		 * @param string $strExpandAsArrayNodes
+		 * @param string[] $strColumnAliasArray
+		 * @return DataPribadi[]
+		 */
+		public static function InstantiateDbResult(QDatabaseResultBase $objDbResult, $strExpandAsArrayNodes = null, $strColumnAliasArray = null) {
+			$objToReturn = array();
+
+			if (!$strColumnAliasArray)
+				$strColumnAliasArray = array();
+
+			// If blank resultset, then return empty array
+			if (!$objDbResult)
+				return $objToReturn;
+
+			// Load up the return array with each row
+			if ($strExpandAsArrayNodes) {
+				$objToReturn = array();
+				while ($objDbRow = $objDbResult->GetNextRow()) {
+					$objItem = DataPribadi::InstantiateDbRow($objDbRow, null, $strExpandAsArrayNodes, $objToReturn, $strColumnAliasArray);
+					if ($objItem) {
+						$objToReturn[] = $objItem;
+					}
+				}
+			} else {
+				while ($objDbRow = $objDbResult->GetNextRow())
+					$objToReturn[] = DataPribadi::InstantiateDbRow($objDbRow, null, null, null, $strColumnAliasArray);
+			}
+
+			return $objToReturn;
+		}
+
+
+
+		///////////////////////////////////////////////////
+		// INDEX-BASED LOAD METHODS (Single Load and Array)
+		///////////////////////////////////////////////////
+			
+		/**
+		 * Load a single DataPribadi object,
+		 * by Nip Index(es)
+		 * @param string $strNip
+		 * @param QQClause[] $objOptionalClauses additional optional QQClause objects for this query
+		 * @return DataPribadi
+		*/
+		public static function LoadByNip($strNip, $objOptionalClauses = null) {
+			return DataPribadi::QuerySingle(
+				QQ::AndCondition(
+					QQ::Equal(QQN::DataPribadi()->Nip, $strNip)
+				),
+				$objOptionalClauses
+			);
+		}
+
+
+
+		////////////////////////////////////////////////////
+		// INDEX-BASED LOAD METHODS (Array via Many to Many)
+		////////////////////////////////////////////////////
+
+
+
+
+		//////////////////////////
+		// SAVE, DELETE AND RELOAD
+		//////////////////////////
+
+		/**
+		 * Save this DataPribadi
+		 * @param bool $blnForceInsert
+		 * @param bool $blnForceUpdate
+		 * @return void
+		 */
+		public function Save($blnForceInsert = false, $blnForceUpdate = false) {
+			// Get the Database Object for this Class
+			$objDatabase = DataPribadi::GetDatabase();
+
+			$mixToReturn = null;
+
+			try {
+				if ((!$this->__blnRestored) || ($blnForceInsert)) {
+					// Perform an INSERT query
+					$objDatabase->NonQuery('
+						INSERT INTO `data_pribadi` (
+							`nip`,
+							`tempat_lahir`,
+							`tgl_lahir`,
+							`agama`,
+							`status_nikah`,
+							`jum_tanggungan`,
+							`alamat`,
+							`nama_bapak`,
+							`nama_ibu`,
+							`jenis_kelamin`
+						) VALUES (
+							' . $objDatabase->SqlVariable($this->strNip) . ',
+							' . $objDatabase->SqlVariable($this->strTempatLahir) . ',
+							' . $objDatabase->SqlVariable($this->dttTglLahir) . ',
+							' . $objDatabase->SqlVariable($this->strAgama) . ',
+							' . $objDatabase->SqlVariable($this->strStatusNikah) . ',
+							' . $objDatabase->SqlVariable($this->intJumTanggungan) . ',
+							' . $objDatabase->SqlVariable($this->strAlamat) . ',
+							' . $objDatabase->SqlVariable($this->strNamaBapak) . ',
+							' . $objDatabase->SqlVariable($this->strNamaIbu) . ',
+							' . $objDatabase->SqlVariable($this->strJenisKelamin) . '
+						)
+					');
+
+
+				} else {
+					// Perform an UPDATE query
+
+					// First checking for Optimistic Locking constraints (if applicable)
+
+					// Perform the UPDATE query
+					$objDatabase->NonQuery('
+						UPDATE
+							`data_pribadi`
+						SET
+							`nip` = ' . $objDatabase->SqlVariable($this->strNip) . ',
+							`tempat_lahir` = ' . $objDatabase->SqlVariable($this->strTempatLahir) . ',
+							`tgl_lahir` = ' . $objDatabase->SqlVariable($this->dttTglLahir) . ',
+							`agama` = ' . $objDatabase->SqlVariable($this->strAgama) . ',
+							`status_nikah` = ' . $objDatabase->SqlVariable($this->strStatusNikah) . ',
+							`jum_tanggungan` = ' . $objDatabase->SqlVariable($this->intJumTanggungan) . ',
+							`alamat` = ' . $objDatabase->SqlVariable($this->strAlamat) . ',
+							`nama_bapak` = ' . $objDatabase->SqlVariable($this->strNamaBapak) . ',
+							`nama_ibu` = ' . $objDatabase->SqlVariable($this->strNamaIbu) . ',
+							`jenis_kelamin` = ' . $objDatabase->SqlVariable($this->strJenisKelamin) . '
+						WHERE
+							`nip` = ' . $objDatabase->SqlVariable($this->__strNip) . '
+					');
+				}
+
+			} catch (QCallerException $objExc) {
+				$objExc->IncrementOffset();
+				throw $objExc;
+			}
+
+			// Update __blnRestored and any Non-Identity PK Columns (if applicable)
+			$this->__blnRestored = true;
+			$this->__strNip = $this->strNip;
+
+
+			// Return
+			return $mixToReturn;
+		}
+
+		/**
+		 * Delete this DataPribadi
+		 * @return void
+		 */
+		public function Delete() {
+			if ((is_null($this->strNip)))
+				throw new QUndefinedPrimaryKeyException('Cannot delete this DataPribadi with an unset primary key.');
+
+			// Get the Database Object for this Class
+			$objDatabase = DataPribadi::GetDatabase();
+
+
+			// Perform the SQL Query
+			$objDatabase->NonQuery('
+				DELETE FROM
+					`data_pribadi`
+				WHERE
+					`nip` = ' . $objDatabase->SqlVariable($this->strNip) . '');
+		}
+
+		/**
+		 * Delete all DataPribadis
+		 * @return void
+		 */
+		public static function DeleteAll() {
+			// Get the Database Object for this Class
+			$objDatabase = DataPribadi::GetDatabase();
+
+			// Perform the Query
+			$objDatabase->NonQuery('
+				DELETE FROM
+					`data_pribadi`');
+		}
+
+		/**
+		 * Truncate data_pribadi table
+		 * @return void
+		 */
+		public static function Truncate() {
+			// Get the Database Object for this Class
+			$objDatabase = DataPribadi::GetDatabase();
+
+			// Perform the Query
+			$objDatabase->NonQuery('
+				TRUNCATE `data_pribadi`');
+		}
+
+		/**
+		 * Reload this DataPribadi from the database.
+		 * @return void
+		 */
+		public function Reload() {
+			// Make sure we are actually Restored from the database
+			if (!$this->__blnRestored)
+				throw new QCallerException('Cannot call Reload() on a new, unsaved DataPribadi object.');
+
+			// Reload the Object
+			$objReloaded = DataPribadi::Load($this->strNip);
+
+			// Update $this's local variables to match
+			$this->Nip = $objReloaded->Nip;
+			$this->__strNip = $this->strNip;
+			$this->strTempatLahir = $objReloaded->strTempatLahir;
+			$this->dttTglLahir = $objReloaded->dttTglLahir;
+			$this->strAgama = $objReloaded->strAgama;
+			$this->strStatusNikah = $objReloaded->strStatusNikah;
+			$this->intJumTanggungan = $objReloaded->intJumTanggungan;
+			$this->strAlamat = $objReloaded->strAlamat;
+			$this->strNamaBapak = $objReloaded->strNamaBapak;
+			$this->strNamaIbu = $objReloaded->strNamaIbu;
+			$this->strJenisKelamin = $objReloaded->strJenisKelamin;
+		}
+
+
+
+		////////////////////
+		// PUBLIC OVERRIDERS
+		////////////////////
+
+				/**
+		 * Override method to perform a property "Get"
+		 * This will get the value of $strName
+		 *
+		 * @param string $strName Name of the property to get
+		 * @return mixed
+		 */
+		public function __get($strName) {
+			switch ($strName) {
+				///////////////////
+				// Member Variables
+				///////////////////
+				case 'Nip':
+					/**
+					 * Gets the value for strNip (PK)
+					 * @return string
+					 */
+					return $this->strNip;
+
+				case 'TempatLahir':
+					/**
+					 * Gets the value for strTempatLahir 
+					 * @return string
+					 */
+					return $this->strTempatLahir;
+
+				case 'TglLahir':
+					/**
+					 * Gets the value for dttTglLahir 
+					 * @return QDateTime
+					 */
+					return $this->dttTglLahir;
+
+				case 'Agama':
+					/**
+					 * Gets the value for strAgama 
+					 * @return string
+					 */
+					return $this->strAgama;
+
+				case 'StatusNikah':
+					/**
+					 * Gets the value for strStatusNikah 
+					 * @return string
+					 */
+					return $this->strStatusNikah;
+
+				case 'JumTanggungan':
+					/**
+					 * Gets the value for intJumTanggungan 
+					 * @return integer
+					 */
+					return $this->intJumTanggungan;
+
+				case 'Alamat':
+					/**
+					 * Gets the value for strAlamat 
+					 * @return string
+					 */
+					return $this->strAlamat;
+
+				case 'NamaBapak':
+					/**
+					 * Gets the value for strNamaBapak 
+					 * @return string
+					 */
+					return $this->strNamaBapak;
+
+				case 'NamaIbu':
+					/**
+					 * Gets the value for strNamaIbu 
+					 * @return string
+					 */
+					return $this->strNamaIbu;
+
+				case 'JenisKelamin':
+					/**
+					 * Gets the value for strJenisKelamin 
+					 * @return string
+					 */
+					return $this->strJenisKelamin;
+
+
+				///////////////////
+				// Member Objects
+				///////////////////
+				case 'NipObject':
+					/**
+					 * Gets the value for the DataPegawai object referenced by strNip (PK)
+					 * @return DataPegawai
+					 */
+					try {
+						if ((!$this->objNipObject) && (!is_null($this->strNip)))
+							$this->objNipObject = DataPegawai::Load($this->strNip);
+						return $this->objNipObject;
+					} catch (QCallerException $objExc) {
+						$objExc->IncrementOffset();
+						throw $objExc;
+					}
+
+
+				////////////////////////////
+				// Virtual Object References (Many to Many and Reverse References)
+				// (If restored via a "Many-to" expansion)
+				////////////////////////////
+
+
+				case '__Restored':
+					return $this->__blnRestored;
+
+				default:
+					try {
+						return parent::__get($strName);
+					} catch (QCallerException $objExc) {
+						$objExc->IncrementOffset();
+						throw $objExc;
+					}
+			}
+		}
+
+				/**
+		 * Override method to perform a property "Set"
+		 * This will set the property $strName to be $mixValue
+		 *
+		 * @param string $strName Name of the property to set
+		 * @param string $mixValue New value of the property
+		 * @return mixed
+		 */
+		public function __set($strName, $mixValue) {
+			switch ($strName) {
+				///////////////////
+				// Member Variables
+				///////////////////
+				case 'Nip':
+					/**
+					 * Sets the value for strNip (PK)
+					 * @param string $mixValue
+					 * @return string
+					 */
+					try {
+						$this->objNipObject = null;
+						return ($this->strNip = QType::Cast($mixValue, QType::String));
+					} catch (QCallerException $objExc) {
+						$objExc->IncrementOffset();
+						throw $objExc;
+					}
+
+				case 'TempatLahir':
+					/**
+					 * Sets the value for strTempatLahir 
+					 * @param string $mixValue
+					 * @return string
+					 */
+					try {
+						return ($this->strTempatLahir = QType::Cast($mixValue, QType::String));
+					} catch (QCallerException $objExc) {
+						$objExc->IncrementOffset();
+						throw $objExc;
+					}
+
+				case 'TglLahir':
+					/**
+					 * Sets the value for dttTglLahir 
+					 * @param QDateTime $mixValue
+					 * @return QDateTime
+					 */
+					try {
+						return ($this->dttTglLahir = QType::Cast($mixValue, QType::DateTime));
+					} catch (QCallerException $objExc) {
+						$objExc->IncrementOffset();
+						throw $objExc;
+					}
+
+				case 'Agama':
+					/**
+					 * Sets the value for strAgama 
+					 * @param string $mixValue
+					 * @return string
+					 */
+					try {
+						return ($this->strAgama = QType::Cast($mixValue, QType::String));
+					} catch (QCallerException $objExc) {
+						$objExc->IncrementOffset();
+						throw $objExc;
+					}
+
+				case 'StatusNikah':
+					/**
+					 * Sets the value for strStatusNikah 
+					 * @param string $mixValue
+					 * @return string
+					 */
+					try {
+						return ($this->strStatusNikah = QType::Cast($mixValue, QType::String));
+					} catch (QCallerException $objExc) {
+						$objExc->IncrementOffset();
+						throw $objExc;
+					}
+
+				case 'JumTanggungan':
+					/**
+					 * Sets the value for intJumTanggungan 
+					 * @param integer $mixValue
+					 * @return integer
+					 */
+					try {
+						return ($this->intJumTanggungan = QType::Cast($mixValue, QType::Integer));
+					} catch (QCallerException $objExc) {
+						$objExc->IncrementOffset();
+						throw $objExc;
+					}
+
+				case 'Alamat':
+					/**
+					 * Sets the value for strAlamat 
+					 * @param string $mixValue
+					 * @return string
+					 */
+					try {
+						return ($this->strAlamat = QType::Cast($mixValue, QType::String));
+					} catch (QCallerException $objExc) {
+						$objExc->IncrementOffset();
+						throw $objExc;
+					}
+
+				case 'NamaBapak':
+					/**
+					 * Sets the value for strNamaBapak 
+					 * @param string $mixValue
+					 * @return string
+					 */
+					try {
+						return ($this->strNamaBapak = QType::Cast($mixValue, QType::String));
+					} catch (QCallerException $objExc) {
+						$objExc->IncrementOffset();
+						throw $objExc;
+					}
+
+				case 'NamaIbu':
+					/**
+					 * Sets the value for strNamaIbu 
+					 * @param string $mixValue
+					 * @return string
+					 */
+					try {
+						return ($this->strNamaIbu = QType::Cast($mixValue, QType::String));
+					} catch (QCallerException $objExc) {
+						$objExc->IncrementOffset();
+						throw $objExc;
+					}
+
+				case 'JenisKelamin':
+					/**
+					 * Sets the value for strJenisKelamin 
+					 * @param string $mixValue
+					 * @return string
+					 */
+					try {
+						return ($this->strJenisKelamin = QType::Cast($mixValue, QType::String));
+					} catch (QCallerException $objExc) {
+						$objExc->IncrementOffset();
+						throw $objExc;
+					}
+
+
+				///////////////////
+				// Member Objects
+				///////////////////
+				case 'NipObject':
+					/**
+					 * Sets the value for the DataPegawai object referenced by strNip (PK)
+					 * @param DataPegawai $mixValue
+					 * @return DataPegawai
+					 */
+					if (is_null($mixValue)) {
+						$this->strNip = null;
+						$this->objNipObject = null;
+						return null;
+					} else {
+						// Make sure $mixValue actually is a DataPegawai object
+						try {
+							$mixValue = QType::Cast($mixValue, 'DataPegawai');
+						} catch (QInvalidCastException $objExc) {
+							$objExc->IncrementOffset();
+							throw $objExc;
+						}
+
+						// Make sure $mixValue is a SAVED DataPegawai object
+						if (is_null($mixValue->Nip))
+							throw new QCallerException('Unable to set an unsaved NipObject for this DataPribadi');
+
+						// Update Local Member Variables
+						$this->objNipObject = $mixValue;
+						$this->strNip = $mixValue->Nip;
+
+						// Return $mixValue
+						return $mixValue;
+					}
+					break;
+
+				default:
+					try {
+						return parent::__set($strName, $mixValue);
+					} catch (QCallerException $objExc) {
+						$objExc->IncrementOffset();
+						throw $objExc;
+					}
+			}
+		}
+
+		/**
+		 * Lookup a VirtualAttribute value (if applicable).  Returns NULL if none found.
+		 * @param string $strName
+		 * @return string
+		 */
+		public function GetVirtualAttribute($strName) {
+			if (array_key_exists($strName, $this->__strVirtualAttributeArray))
+				return $this->__strVirtualAttributeArray[$strName];
+			return null;
+		}
+
+
+
+		///////////////////////////////
+		// ASSOCIATED OBJECTS' METHODS
+		///////////////////////////////
+
+
+
+
+
+		////////////////////////////////////////
+		// METHODS for SOAP-BASED WEB SERVICES
+		////////////////////////////////////////
+
+		public static function GetSoapComplexTypeXml() {
+			$strToReturn = '<complexType name="DataPribadi"><sequence>';
+			$strToReturn .= '<element name="NipObject" type="xsd1:DataPegawai"/>';
+			$strToReturn .= '<element name="TempatLahir" type="xsd:string"/>';
+			$strToReturn .= '<element name="TglLahir" type="xsd:dateTime"/>';
+			$strToReturn .= '<element name="Agama" type="xsd:string"/>';
+			$strToReturn .= '<element name="StatusNikah" type="xsd:string"/>';
+			$strToReturn .= '<element name="JumTanggungan" type="xsd:int"/>';
+			$strToReturn .= '<element name="Alamat" type="xsd:string"/>';
+			$strToReturn .= '<element name="NamaBapak" type="xsd:string"/>';
+			$strToReturn .= '<element name="NamaIbu" type="xsd:string"/>';
+			$strToReturn .= '<element name="JenisKelamin" type="xsd:string"/>';
+			$strToReturn .= '<element name="__blnRestored" type="xsd:boolean"/>';
+			$strToReturn .= '</sequence></complexType>';
+			return $strToReturn;
+		}
+
+		public static function AlterSoapComplexTypeArray(&$strComplexTypeArray) {
+			if (!array_key_exists('DataPribadi', $strComplexTypeArray)) {
+				$strComplexTypeArray['DataPribadi'] = DataPribadi::GetSoapComplexTypeXml();
+				DataPegawai::AlterSoapComplexTypeArray($strComplexTypeArray);
+			}
+		}
+
+		public static function GetArrayFromSoapArray($objSoapArray) {
+			$objArrayToReturn = array();
+
+			foreach ($objSoapArray as $objSoapObject)
+				array_push($objArrayToReturn, DataPribadi::GetObjectFromSoapObject($objSoapObject));
+
+			return $objArrayToReturn;
+		}
+
+		public static function GetObjectFromSoapObject($objSoapObject) {
+			$objToReturn = new DataPribadi();
+			if ((property_exists($objSoapObject, 'NipObject')) &&
+				($objSoapObject->NipObject))
+				$objToReturn->NipObject = DataPegawai::GetObjectFromSoapObject($objSoapObject->NipObject);
+			if (property_exists($objSoapObject, 'TempatLahir'))
+				$objToReturn->strTempatLahir = $objSoapObject->TempatLahir;
+			if (property_exists($objSoapObject, 'TglLahir'))
+				$objToReturn->dttTglLahir = new QDateTime($objSoapObject->TglLahir);
+			if (property_exists($objSoapObject, 'Agama'))
+				$objToReturn->strAgama = $objSoapObject->Agama;
+			if (property_exists($objSoapObject, 'StatusNikah'))
+				$objToReturn->strStatusNikah = $objSoapObject->StatusNikah;
+			if (property_exists($objSoapObject, 'JumTanggungan'))
+				$objToReturn->intJumTanggungan = $objSoapObject->JumTanggungan;
+			if (property_exists($objSoapObject, 'Alamat'))
+				$objToReturn->strAlamat = $objSoapObject->Alamat;
+			if (property_exists($objSoapObject, 'NamaBapak'))
+				$objToReturn->strNamaBapak = $objSoapObject->NamaBapak;
+			if (property_exists($objSoapObject, 'NamaIbu'))
+				$objToReturn->strNamaIbu = $objSoapObject->NamaIbu;
+			if (property_exists($objSoapObject, 'JenisKelamin'))
+				$objToReturn->strJenisKelamin = $objSoapObject->JenisKelamin;
+			if (property_exists($objSoapObject, '__blnRestored'))
+				$objToReturn->__blnRestored = $objSoapObject->__blnRestored;
+			return $objToReturn;
+		}
+
+		public static function GetSoapArrayFromArray($objArray) {
+			if (!$objArray)
+				return null;
+
+			$objArrayToReturn = array();
+
+			foreach ($objArray as $objObject)
+				array_push($objArrayToReturn, DataPribadi::GetSoapObjectFromObject($objObject, true));
+
+			return unserialize(serialize($objArrayToReturn));
+		}
+
+		public static function GetSoapObjectFromObject($objObject, $blnBindRelatedObjects) {
+			if ($objObject->objNipObject)
+				$objObject->objNipObject = DataPegawai::GetSoapObjectFromObject($objObject->objNipObject, false);
+			else if (!$blnBindRelatedObjects)
+				$objObject->strNip = null;
+			if ($objObject->dttTglLahir)
+				$objObject->dttTglLahir = $objObject->dttTglLahir->qFormat(QDateTime::FormatSoap);
+			return $objObject;
+		}
+
+
+		////////////////////////////////////////
+		// METHODS for JSON Object Translation
+		////////////////////////////////////////
+
+		// this function is required for objects that implement the
+		// IteratorAggregate interface
+		public function getIterator() {
+			///////////////////
+			// Member Variables
+			///////////////////
+			$iArray['Nip'] = $this->strNip;
+			$iArray['TempatLahir'] = $this->strTempatLahir;
+			$iArray['TglLahir'] = $this->dttTglLahir;
+			$iArray['Agama'] = $this->strAgama;
+			$iArray['StatusNikah'] = $this->strStatusNikah;
+			$iArray['JumTanggungan'] = $this->intJumTanggungan;
+			$iArray['Alamat'] = $this->strAlamat;
+			$iArray['NamaBapak'] = $this->strNamaBapak;
+			$iArray['NamaIbu'] = $this->strNamaIbu;
+			$iArray['JenisKelamin'] = $this->strJenisKelamin;
+			return new ArrayIterator($iArray);
+		}
+
+		// this function returns a Json formatted string using the
+		// IteratorAggregate interface
+		public function getJson() {
+			return json_encode($this->getIterator());
+		}
+
+
+	}
+
+
+
+	/////////////////////////////////////
+	// ADDITIONAL CLASSES for QCubed QUERY
+	/////////////////////////////////////
+
+    /**
+     * @uses QQNode
+     *
+     * @property-read QQNode $Nip
+     * @property-read QQNodeDataPegawai $NipObject
+     * @property-read QQNode $TempatLahir
+     * @property-read QQNode $TglLahir
+     * @property-read QQNode $Agama
+     * @property-read QQNode $StatusNikah
+     * @property-read QQNode $JumTanggungan
+     * @property-read QQNode $Alamat
+     * @property-read QQNode $NamaBapak
+     * @property-read QQNode $NamaIbu
+     * @property-read QQNode $JenisKelamin
+     *
+     *
+
+     * @property-read QQNodeDataPegawai $_PrimaryKeyNode
+     **/
+	class QQNodeDataPribadi extends QQNode {
+		protected $strTableName = 'data_pribadi';
+		protected $strPrimaryKey = 'nip';
+		protected $strClassName = 'DataPribadi';
+		public function __get($strName) {
+			switch ($strName) {
+				case 'Nip':
+					return new QQNode('nip', 'Nip', 'VarChar', $this);
+				case 'NipObject':
+					return new QQNodeDataPegawai('nip', 'NipObject', 'VarChar', $this);
+				case 'TempatLahir':
+					return new QQNode('tempat_lahir', 'TempatLahir', 'VarChar', $this);
+				case 'TglLahir':
+					return new QQNode('tgl_lahir', 'TglLahir', 'Date', $this);
+				case 'Agama':
+					return new QQNode('agama', 'Agama', 'VarChar', $this);
+				case 'StatusNikah':
+					return new QQNode('status_nikah', 'StatusNikah', 'VarChar', $this);
+				case 'JumTanggungan':
+					return new QQNode('jum_tanggungan', 'JumTanggungan', 'Integer', $this);
+				case 'Alamat':
+					return new QQNode('alamat', 'Alamat', 'Blob', $this);
+				case 'NamaBapak':
+					return new QQNode('nama_bapak', 'NamaBapak', 'VarChar', $this);
+				case 'NamaIbu':
+					return new QQNode('nama_ibu', 'NamaIbu', 'VarChar', $this);
+				case 'JenisKelamin':
+					return new QQNode('jenis_kelamin', 'JenisKelamin', 'VarChar', $this);
+
+				case '_PrimaryKeyNode':
+					return new QQNodeDataPegawai('nip', 'Nip', 'VarChar', $this);
+				default:
+					try {
+						return parent::__get($strName);
+					} catch (QCallerException $objExc) {
+						$objExc->IncrementOffset();
+						throw $objExc;
+					}
+			}
+		}
+	}
+
+    /**
+     * @property-read QQNode $Nip
+     * @property-read QQNodeDataPegawai $NipObject
+     * @property-read QQNode $TempatLahir
+     * @property-read QQNode $TglLahir
+     * @property-read QQNode $Agama
+     * @property-read QQNode $StatusNikah
+     * @property-read QQNode $JumTanggungan
+     * @property-read QQNode $Alamat
+     * @property-read QQNode $NamaBapak
+     * @property-read QQNode $NamaIbu
+     * @property-read QQNode $JenisKelamin
+     *
+     *
+
+     * @property-read QQNodeDataPegawai $_PrimaryKeyNode
+     **/
+	class QQReverseReferenceNodeDataPribadi extends QQReverseReferenceNode {
+		protected $strTableName = 'data_pribadi';
+		protected $strPrimaryKey = 'nip';
+		protected $strClassName = 'DataPribadi';
+		public function __get($strName) {
+			switch ($strName) {
+				case 'Nip':
+					return new QQNode('nip', 'Nip', 'string', $this);
+				case 'NipObject':
+					return new QQNodeDataPegawai('nip', 'NipObject', 'string', $this);
+				case 'TempatLahir':
+					return new QQNode('tempat_lahir', 'TempatLahir', 'string', $this);
+				case 'TglLahir':
+					return new QQNode('tgl_lahir', 'TglLahir', 'QDateTime', $this);
+				case 'Agama':
+					return new QQNode('agama', 'Agama', 'string', $this);
+				case 'StatusNikah':
+					return new QQNode('status_nikah', 'StatusNikah', 'string', $this);
+				case 'JumTanggungan':
+					return new QQNode('jum_tanggungan', 'JumTanggungan', 'integer', $this);
+				case 'Alamat':
+					return new QQNode('alamat', 'Alamat', 'string', $this);
+				case 'NamaBapak':
+					return new QQNode('nama_bapak', 'NamaBapak', 'string', $this);
+				case 'NamaIbu':
+					return new QQNode('nama_ibu', 'NamaIbu', 'string', $this);
+				case 'JenisKelamin':
+					return new QQNode('jenis_kelamin', 'JenisKelamin', 'string', $this);
+
+				case '_PrimaryKeyNode':
+					return new QQNodeDataPegawai('nip', 'Nip', 'string', $this);
+				default:
+					try {
+						return parent::__get($strName);
+					} catch (QCallerException $objExc) {
+						$objExc->IncrementOffset();
+						throw $objExc;
+					}
+			}
+		}
+	}
+
+?>
